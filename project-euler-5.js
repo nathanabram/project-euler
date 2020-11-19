@@ -7,6 +7,41 @@ So, to solve, find the prime numbers less than 20 and take their product.
 BUT also there are numbers from 1 to 20 which have multiples of the primes that they are composed of. So the important thing is to decompose each number under 20, and figure out for which one's there are multiple primes. 
 Then have at least that many primes and no more
 */
+
+// Need a function that returns the factors of a number:
+function factorsOf(num){
+	let factorTree = 1;
+	let factorsArray = [];
+	for (i=1; i<= num/2 && (factorTree != num); i++){
+		if (num % i === 0){
+			factorsArray.push(i);
+			factorTree = factorTree *i;
+
+		}
+	}
+	return factorsArray;
+}
+console.log(factorsOf(20));
+
+// Need a function that returns the prime factors of a number:
+// This code is super broken...
+function primeFactorize(nums){
+	let primeFactors = [];
+		for (i =0; i < nums.length; i++){
+			let notPrime = true;
+			for (j=2; j<= nums[i]/2; j++){
+				if (nums[i] % j === 0 ){
+					notPrime = false;}}
+
+		if (!notPrime){
+			console.log(i + " is not a prime! ")
+			primeFactors.push(factorsOf(nums[i]));
+		} else {
+			console.log(i + " is a prime!")
+			primeFactors.push(i)}
+	}
+}
+console.log(primeFactorize([5,20,50]));
 let numbers = [];
 let extras = [];
 let breakk = false;
